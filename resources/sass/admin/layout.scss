@@ -1,0 +1,8 @@
+.admin-dashboard{
+  display: flex;
+  column-gap: 20px;
+}
+.admin-content{
+  width: calc(100% - 240px);
+  margin-left: auto;
+}

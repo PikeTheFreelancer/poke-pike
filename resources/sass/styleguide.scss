@@ -1,0 +1,19 @@
+.container{
+  max-width: 1440px;
+  margin: auto;
+}
+ul li{
+  list-style: none;
+}
+ul{
+  margin: 0;
+  padding: 0;
+}
+a{
+  color: #000;
+  text-decoration: none;
+}
+i::before{
+  font-family: "fontawesome";
+  font-style: initial;
+}

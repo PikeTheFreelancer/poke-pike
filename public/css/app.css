@@ -11972,3 +11972,60 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+.container {
+  max-width: 1440px;
+  margin: auto;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+i::before {
+  font-family: "fontawesome";
+  font-style: initial;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.admin-dashboard {
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+
+.admin-content {
+  width: calc(100% - 240px);
+  margin-left: auto;
+}
+
+.admin-sidebar {
+  width: 240px;
+  padding: 20px;
+  font-size: 18px;
+  background-color: #fff;
+  position: fixed;
+  height: 100vh;
+}
+
+.navigation-form {
+  display: flex;
+  flex-direction: column;
+}

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\NavigationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +21,8 @@ Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 //Admin
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::post('/logout', [LogoutController::class, 'logout'])->name('admin.logout');
+    Route::get('/navigation', [NavigationController::class, 'index'])->name('admin.navigation');
 });
 
 Auth::routes();
