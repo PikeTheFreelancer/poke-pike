@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
+
 class LoginController extends Controller
 {
     /*
@@ -19,14 +22,9 @@ class LoginController extends Controller
     |
     */
 
-    // use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    use AuthenticatesUsers {
+        logout as performLogout;
+    }
 
     /**
      * Create a new controller instance.
@@ -35,6 +33,25 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:admins')->except('logout');
+    }
+
+    public function redirectTo(): string
+    {
+        $route = route('admin.login');
+        return $route;
+    }
+
+    public function showLoginForm(): View
+    {
+        return view('admin.auth.login');
+    }
+
+    public function logout(Request $request)
+    {
+        $this->performLogout($request);
+        return $request->wantsJson()
+            ? new JsonResponse([], 204)
+            : redirect()->route('admin.dashboard');
     }
 }

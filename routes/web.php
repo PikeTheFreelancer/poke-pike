@@ -18,13 +18,6 @@ use App\Http\Controllers\admin\NavigationController;
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 
-//Admin
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
-    Route::post('/logout', [LogoutController::class, 'logout'])->name('admin.logout');
-    Route::get('/navigation', [NavigationController::class, 'index'])->name('admin.navigation');
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

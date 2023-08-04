@@ -12017,12 +12017,19 @@ button {
 }
 
 .admin-sidebar {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
   width: 240px;
   padding: 20px;
-  font-size: 18px;
+  font-size: 14px;
   background-color: #fff;
   position: fixed;
   height: 100vh;
+  text-transform: capitalize;
+}
+.admin-sidebar li:hover {
+  text-decoration: underline;
 }
 
 .navigation-form {
